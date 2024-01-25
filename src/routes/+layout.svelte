@@ -3,9 +3,9 @@
 import Navbar from "$lib/components/layout/Navbar.svelte";
 import "../app.css";
 </script>
-<div class="min-h-screen">
+<div class="min-h-screen flex relative flex-col">
     <Navbar />
-    <div class="p-8">
+    <div class="p-8 h-full">
         <slot></slot>
     </div>
     <Footer />

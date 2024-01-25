@@ -1,3 +1,5 @@
+import { isValidDueDate, isValidId, isValidString } from '$lib/utils/utils';
+
 export class ToDoItem {
 	private id: string;
 	private title: string;
@@ -5,16 +7,33 @@ export class ToDoItem {
 	private completed: boolean;
 	private dateCreated: Date;
 	private dateCompleted: Date | null;
-	private dateDue: Date | null;
+	private dateDue: Date;
 	private userId: string;
-	constructor(id: string, title: string, description: string, userId: string) {
+	constructor(id: string, title: string, description: string, userId: string, dateDue: Date) {
+		const validations: {
+			value: string | Date;
+			func: (value: any) => boolean;
+			message: string;
+		}[] = [
+			{ value: id, func: isValidId, message: 'Invalid id in ToDoItem' },
+			{ value: title, func: isValidString, message: 'Invalid title in ToDoItem' },
+			{ value: description, func: isValidString, message: 'Invalid description in ToDoItem' },
+			{ value: userId, func: isValidString, message: 'Invalid userId in ToDoItem' },
+			{ value: dateDue, func: isValidDueDate, message: 'Invalid dateDue in ToDoItem' }
+		];
+
+		for (const validation of validations) {
+			if (!validation.func(validation?.value)) {
+				throw new Error(validation.message);
+			}
+		}
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.completed = false;
 		this.dateCreated = new Date();
 		this.dateCompleted = null;
-		this.dateDue = null;
+		this.dateDue = dateDue;
 		this.userId = userId;
 	}
 	getId(): string {
@@ -35,7 +54,7 @@ export class ToDoItem {
 	getDateCompleted(): Date | null {
 		return this.dateCompleted;
 	}
-	getDateDue(): Date | null {
+	getDateDue(): Date {
 		return this.dateDue;
 	}
 	getUserId(): string {
