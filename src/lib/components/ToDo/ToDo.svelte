@@ -2,8 +2,9 @@
     import {ToDoItem} from "$lib/classes/ToDoItem";
 	import { createEventDispatcher } from "svelte";
 	import Button from "../ui/Button.svelte";
-	import { get } from "svelte/store";
+    
 	import { getRemainingDays } from "$lib/utils/utils";
+	import DeleteIcon from "../icons/DeleteIcon.svelte";
     export let toDo: ToDoItem;
     const dispatch = createEventDispatcher();
     const remove = () => dispatch("remove", toDo.getId());
@@ -31,10 +32,8 @@
         </div>
     </div>
     <Button color="red-400" cta="Remove" type="icon" className="rounded-lg " filled={true} on:click={remove}>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M6 18L18 6M6 6l12 12" />
-        </svg>
+       <!-- <img src="Delete Button.svg" alt="remove" class="w-6 h-6 text-white"/> -->
+       <DeleteIcon className="w-10 h-10 p-2 text-white bg-red-400 rounded-full"/>
+       
     </Button>
 </span>

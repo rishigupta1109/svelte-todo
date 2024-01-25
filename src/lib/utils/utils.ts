@@ -10,8 +10,8 @@ export function getRandomChar(length: number): string {
 export function getTimeInLocaleString(): string {
 	return new Date().getTime().toString();
 }
-export function generateRandomId(): string {
-	return 'TODO' + getRandomChar(2) + getTimeInLocaleString();
+export function generateRandomId(prefix: string = 'TODO'): string {
+	return prefix + getRandomChar(2) + getTimeInLocaleString();
 }
 export function isValidString(str: string): boolean {
 	return str.trim().length > 0;

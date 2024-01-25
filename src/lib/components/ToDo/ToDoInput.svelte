@@ -1,7 +1,9 @@
 
 <script lang="ts">
+	import { Alert } from "$lib/classes/Alert";
 	import { ToDoItem } from "$lib/classes/ToDoItem";
 	import { generateRandomId } from "$lib/utils/utils";
+	import { alertStore } from "../../../store/alertStore";
 	import { userToDoStore } from "../../../store/userToDoStore";
 	import Button from "../ui/Button.svelte";
 
@@ -13,10 +15,12 @@
         try{
             const newToDo= new ToDoItem(generateRandomId(), title, description,"userId",new Date(dueDate));
             userToDoStore.append(newToDo);
+            alertStore.add(new Alert("ToDo Added","success"));
             title = "";
             description = "";
-        }catch(e){
+        }catch(e:any){
             console.log(e);
+            alertStore.add(new Alert(e?.message,"error"));
         }
     };
     $: console.log(dueDate);
