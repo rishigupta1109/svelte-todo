@@ -16,24 +16,24 @@
     
     function getDueDateHTML():string{
         if(dueDate?.getTime()<Date.now()){
-            return `<span class="text-red-400">due : ${dueDate?.toDateString()}</span>`;
+            return `<p class="text-red-400">due : ${dueDate?.toDateString()}</p>`;
         }
-        return `<span class="text-black opacity-65">due : ${dueDate?.toDateString()} ( ${getRemainingDays(dueDate)})</span>`;
+        return `<p class="text-black opacity-65">due : ${dueDate?.toDateString()} ( ${getRemainingDays(dueDate)})</p>`;
     }
 </script>
 
-<span class="flex justify-between bg-white text-black p-4 gap-4 w-full rounded-md">
+<span class="flex justify-between items-center bg-white text-black p-4 gap-4 w-full rounded-md">
     <div class="flex gap-4">
         <input type="checkbox" {checked} on:change={toggle} />
         <div>
-            <h3>{title.toLocaleUpperCase()}</h3>
+            <h5>{title.toLocaleUpperCase()}</h5>
             <p class="opacity-65">{description}</p>
             {@html getDueDateHTML()}
         </div>
     </div>
-    <Button color="red-400" cta="Remove" type="icon" className="rounded-lg " filled={true} on:click={remove}>
+    <Button  cta="Remove" type="icon" className="rounded-lg max-h-16 " filled={true} on:click={remove}>
        <!-- <img src="Delete Button.svg" alt="remove" class="w-6 h-6 text-white"/> -->
-       <DeleteIcon className="w-10 h-10 p-2 text-white bg-red-400 rounded-full"/>
+       <DeleteIcon className="h-8 w-8 sm:w-10 md:h-10 p-2 text-white"/>
        
     </Button>
 </span>

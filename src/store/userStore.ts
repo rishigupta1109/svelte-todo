@@ -3,7 +3,6 @@ import { writable, type Writable } from 'svelte/store';
 
 function createUserStore() {
 	const { subscribe, set, update }: Writable<User | null> = writable(null);
-
 	return {
 		subscribe,
 		set,

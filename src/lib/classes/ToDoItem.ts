@@ -82,4 +82,33 @@ export class ToDoItem {
 	setUserId(userId: string): void {
 		this.userId = userId;
 	}
+	setDateCreated(dateCreated: Date): void {
+		this.dateCreated = dateCreated;
+	}
+	static from({
+		id,
+		title,
+		description,
+		completed,
+		dateCreated,
+		dateCompleted,
+		dateDue,
+		userId
+	}: {
+		id: string;
+		title: string;
+		description: string;
+		completed: boolean;
+		dateCreated: Date;
+		dateCompleted: Date;
+		dateDue: Date;
+		userId: string;
+	}): ToDoItem {
+		console.log(id, title, description, completed, dateCreated, dateCompleted, dateDue, userId);
+		let item = new ToDoItem(id, title, description, userId, dateDue);
+		item.setCompleted(completed);
+		item.setDateCompleted(new Date(dateCompleted));
+		item.setDateCreated(new Date(dateCreated));
+		return item;
+	}
 }

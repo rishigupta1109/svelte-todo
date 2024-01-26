@@ -42,4 +42,19 @@ export class User {
 	setToken(token: string): void {
 		this.token = token;
 	}
+	static from({
+		id,
+		name,
+		email,
+		dateCreated,
+		token
+	}: {
+		id: string;
+		name: string;
+		email: string;
+		dateCreated: string;
+		token: string;
+	}): User {
+		return new User(id, name, email, dateCreated, token);
+	}
 }

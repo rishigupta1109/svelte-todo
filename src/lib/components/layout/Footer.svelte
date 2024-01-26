@@ -1,7 +1,11 @@
+<script>
 
-<footer class="flex mt-auto align-bottom px-8 py-4 bg-blue-300 text-white justify-between items-center">
+    let className=`flex mt-auto align-bottom px-8 py-4 bg-blue-300 text-white justify-between items-center`
+</script>
+
+<footer class={className}>
     <h1>Nuclei | To Do App</h1>
     <p>
-        copyrigth &copy; 2021
+        copyright &copy; 2021
     </p>
 </footer>
