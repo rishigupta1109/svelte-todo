@@ -15,17 +15,17 @@
 
 
     function remove(event:CustomEvent<string>){
-            const id=event.detail;
-            userToDoStore.remove(id);
-            firestore.deleteTodo(id);
-            alertStore.add(new Alert("ToDo Removed","success"));
+        const id=event.detail;
+        firestore.deleteTodo(id);
+        userToDoStore.remove(id);
+        alertStore.add(new Alert("ToDo Removed","success"));
     }
     function toggle(event:CustomEvent<string>){
-            const id=event.detail;
-            userToDoStore.toggle(id);
-            const item=$userToDoStore.find((toDo)=>toDo.getId()===id);
-            if(!item) return ;
-            firestore.updateTodo(item);
+        const id=event.detail;
+        const item=$userToDoStore.find((toDo)=>toDo.getId()===id);
+        if(!item) return ;
+        firestore.updateTodo(item);
+        userToDoStore.toggle(id);
     }
 </script>
 
