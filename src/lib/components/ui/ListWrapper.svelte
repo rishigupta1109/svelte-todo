@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { ToDoItem } from "$lib/classes/ToDoItem";
-	import { primaryColor } from "$lib/utils/constant";
 	import ToDoList from "../ToDo/ToDoList.svelte";
+    //import over
 
     export let title: string = "";
     export let list: ToDoItem[] = [];
+    //props over
 </script>
 
 <div class="flex flex-col justify-start gap-2 items-center w-full p-4 h-full bg-blue-300 my-2 text-white min-h-64 rounded-md">

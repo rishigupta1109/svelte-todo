@@ -1,3 +1,6 @@
+import { Alert } from '$lib/classes/Alert';
+import { alertStore } from '../../store/alertStore';
+
 export function getRandomChar(length: number): string {
 	let result = '';
 	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -30,4 +33,35 @@ export function getRemainingDays(date: Date) {
 	const diff = Math.abs(date.getTime() - Date.now());
 	const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 	return `${days} days remaining`;
+}
+
+export function getDueDateHTML(dueDate: Date): string {
+	if (dueDate?.getTime() < Date.now()) {
+		return `<p class="text-red-400">due : ${dueDate?.toDateString()}</p>`;
+	}
+	return `<p class="text-black opacity-65">due : ${dueDate?.toDateString()} ( ${getRemainingDays(dueDate)})</p>`;
+}
+
+export function getBgColor(type: string): string {
+	switch (type) {
+		case 'success':
+			return 'bg-green-500';
+		case 'error':
+			return 'bg-red-500';
+		case 'warning':
+			return 'bg-yellow-500';
+		case 'info':
+			return 'bg-blue-500';
+		default:
+			return 'bg-gray-500';
+	}
+}
+
+export function catchError(callback: Function, args: any) {
+	try {
+		callback(args);
+	} catch (e: any) {
+		console.log(e);
+		alertStore.add(new Alert(e.message, 'error'));
+	}
 }
