@@ -16,8 +16,8 @@ export function getTimeInLocaleString(): string {
 export function generateRandomId(prefix: string = 'TODO'): string {
 	return prefix + getRandomChar(2) + getTimeInLocaleString();
 }
-export function isValidString(str: string): boolean {
-	return str.trim().length > 0;
+export function isValidString(str: string, charLimit: number = 250): boolean {
+	return str.trim().length > 0 && str.trim().length <= charLimit;
 }
 export function isValidDueDate(date: Date): boolean {
 	console.log(date);

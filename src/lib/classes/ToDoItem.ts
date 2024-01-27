@@ -1,3 +1,4 @@
+import { descriptionLength, titleLength } from '$lib/utils/constants';
 import { isValidDueDate, isValidId, isValidString } from '$lib/utils/utils';
 
 export class ToDoItem {
@@ -12,18 +13,29 @@ export class ToDoItem {
 	constructor(id: string, title: string, description: string, userId: string, dateDue: Date) {
 		const validations: {
 			value: string | Date;
-			func: (value: any) => boolean;
+			func: (value: any, length: number | undefined) => boolean;
+			length?: number;
 			message: string;
 		}[] = [
 			{ value: id, func: isValidId, message: 'Invalid id in ToDoItem' },
-			{ value: title, func: isValidString, message: 'Invalid title in ToDoItem' },
-			{ value: description, func: isValidString, message: 'Invalid description in ToDoItem' },
+			{
+				value: title,
+				func: isValidString,
+				length: titleLength,
+				message: 'Invalid title in ToDoItem'
+			},
+			{
+				value: description,
+				func: isValidString,
+				length: descriptionLength,
+				message: 'Invalid description in ToDoItem'
+			},
 			{ value: userId, func: isValidString, message: 'Invalid userId in ToDoItem' },
 			{ value: dateDue, func: isValidDueDate, message: 'Invalid dateDue in ToDoItem' }
 		];
 
 		for (const validation of validations) {
-			if (!validation.func(validation?.value)) {
+			if (!validation.func(validation?.value, validation?.length)) {
 				throw new Error(validation.message);
 			}
 		}

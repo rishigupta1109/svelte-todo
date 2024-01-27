@@ -2,6 +2,7 @@
 <script lang="ts">
 	import { Alert } from "$lib/classes/Alert";
 	import { ToDoItem } from "$lib/classes/ToDoItem";
+	import { descriptionLength, titleLength } from "$lib/utils/constants";
 	import { catchError, generateRandomId } from "$lib/utils/utils";
 	import { alertStore } from "../../../store/alertStore";
 	import { firebaseStore } from "../../../store/firebaseStore";
@@ -35,11 +36,11 @@
 </script>
 
 <span class="min-w-full bg-blue-300 p-8 rounded-md flex flex-col justify-around items-stretch gap-2 ">
-    <p class="text-white">Title :</p>
-    <input type="text" bind:value={title} class=" rounded-md w-full outline-none px-4 py-2" placeholder="Title" />
-    <p class="text-white">Description :</p>
-    <textarea bind:value={description} class=" rounded-md outline-none px-4 py-2" placeholder="Description" />
-    <p class="text-white">Due Date :</p>
+    <p class="text-white">Title : (Max. {titleLength} chars)</p>
+    <input type="text" bind:value={title} maxlength={titleLength} class=" rounded-md w-full outline-none px-4 py-2" placeholder="Title" />
+    <p class="text-white">Description : (Max. {descriptionLength} chars)</p>
+    <textarea bind:value={description} maxlength={descriptionLength} class=" rounded-md outline-none px-4 py-2" placeholder="Description" />
+    <p class="text-white">Due Date : (Future date only)</p>
     <input type="date"  bind:value={dueDate} class=" rounded-md outline-none px-4 py-2" placeholder="Due Date" />
     <Button type='button' filled={true}  on:click={catchError.bind(null,addToDoHandler)} cta="Add"></Button>
 </span>
