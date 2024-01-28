@@ -1,15 +1,18 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, type FirebaseApp } from 'firebase/app';
 import {
 	browserLocalPersistence,
 	getAuth,
 	onAuthStateChanged,
 	setPersistence,
 	signInWithPopup,
-	signOut
+	signOut,
+	type Config,
+	type Auth
 } from 'firebase/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { User } from '$lib/classes/User';
 import {
+	Firestore,
 	addDoc,
 	collection,
 	deleteDoc,
@@ -20,17 +23,29 @@ import {
 	where
 } from 'firebase/firestore';
 import { ToDoItem } from '$lib/classes/ToDoItem';
+import type { Writable } from 'svelte/store';
+import type { WritableLoadingStore } from '../../store/loadingStore';
+
+interface FirebaseConfig {
+	apiKey: string;
+	authDomain: string;
+	projectId: string;
+	storageBucket: string;
+	messagingSenderId: string;
+	appId: string;
+}
 
 export class FirebaseController {
-	private app: any;
-	private firebaseController: any;
-	user: any;
-	private auth: any;
-	private token: any;
-	private db: any;
+	private app: FirebaseApp;
+	private auth: Auth;
+	private db: Firestore;
+	private firebaseControllerConfig: FirebaseConfig;
+	private loadingStore: WritableLoadingStore;
+	private token: string = '';
+	private user: User | null = null;
+	private userStore: Writable<User | null>;
+
 	private static instance: FirebaseController;
-	private loadingStore: any;
-	private userStore: any;
 
 	private constructor(loadingStore: any, userStore: any) {
 		this.loadingStore = loadingStore;
@@ -38,7 +53,7 @@ export class FirebaseController {
 
 		loadingStore.start();
 
-		this.firebaseController = {
+		this.firebaseControllerConfig = {
 			apiKey: import.meta.env.VITE_API_KEY,
 			authDomain: import.meta.env.VITE_AUTH_DOMAIN,
 			projectId: import.meta.env.VITE_PROJECT_ID,
@@ -47,12 +62,12 @@ export class FirebaseController {
 			appId: import.meta.env.VITE_APP_ID
 		};
 
-		this.app = initializeApp(this.firebaseController);
+		this.app = initializeApp(this.firebaseControllerConfig);
 		this.auth = getAuth(this.app);
 
 		onAuthStateChanged(this.auth, (user) => {
-			this.user = user;
 			loadingStore.stop();
+			this.user = null;
 			if (!user) return;
 			this.user = User.from({
 				id: user.uid,
@@ -78,12 +93,17 @@ export class FirebaseController {
 			await setPersistence(this.auth, browserLocalPersistence);
 			const result = await signInWithPopup(this.auth, new GoogleAuthProvider());
 			const credential = GoogleAuthProvider.credentialFromResult(result);
-			this.token = credential?.accessToken;
+			this.token = credential?.accessToken || '';
 			// The signed-in user info.
-			this.user = result.user;
+			if (!result.user) throw new Error('No user found');
+			this.user = User.from({
+				id: result.user.uid,
+				name: result.user.displayName ?? '',
+				email: result.user.email ?? '',
+				dateCreated: result.user.metadata.creationTime ?? '',
+				token: this.token
+			});
 			return this.user;
-			// IdP data available using getAdditionalUserInfo(result)
-			// ...
 		} catch (error: any) {
 			const errorCode = error.code;
 			const errorMessage = error.message;

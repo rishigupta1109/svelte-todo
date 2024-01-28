@@ -29,7 +29,7 @@
     }
 </script>
 
-<div class="flex flex-col justify-between items-stretch w-full gap-2 py-4  max-h-64 overflow-auto max-w-[500px]">
+<div class="flex flex-col justify-between items-stretch w-full gap-2 py-4  max-h-64 overflow-auto w-full">
     {#each toDoList as toDo(toDo)}
         <ToDo {toDo} on:remove={catchError.bind(null, remove)} on:toggle={catchError.bind(null, toggle)} />
     {/each}

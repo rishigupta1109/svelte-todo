@@ -19,3 +19,8 @@ function createLoadingStore() {
 }
 
 export const loadingStore = createLoadingStore();
+
+export interface WritableLoadingStore extends Writable<boolean> {
+	start: () => void;
+	stop: () => void;
+}
