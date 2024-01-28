@@ -25,8 +25,8 @@
             return alertStore.add(new Alert("Please Login","error"));
         }
             const newToDo= new ToDoItem(generateRandomId(), title, description,user?.getId(),new Date(dueDate));
-            userToDoStore.append(newToDo);
             firestore.createTodo(newToDo);
+            userToDoStore.append(newToDo);
             alertStore.add(new Alert("ToDo Added","success"));
             title = "";
             description = "";
@@ -35,12 +35,12 @@
     };
 </script>
 
-<span class="min-w-full bg-blue-300 p-8 rounded-md flex flex-col justify-around items-stretch gap-2 ">
+<span class="min-w-full bg-blue-400 p-8 rounded-md flex flex-col justify-around items-stretch gap-2 ">
     <p class="text-white">Title : (Max. {titleLength} chars)</p>
     <input type="text" bind:value={title} maxlength={titleLength} class=" rounded-md w-full outline-none px-4 py-2" placeholder="Title" />
     <p class="text-white">Description : (Max. {descriptionLength} chars)</p>
     <textarea bind:value={description} maxlength={descriptionLength} class=" rounded-md outline-none px-4 py-2" placeholder="Description" />
     <p class="text-white">Due Date : (Future date only)</p>
     <input type="date"  bind:value={dueDate} class=" rounded-md outline-none px-4 py-2" placeholder="Due Date" />
-    <Button type='button' filled={true}  on:click={catchError.bind(null,addToDoHandler)} cta="Add"></Button>
+    <Button type='button' filled={false}  on:click={catchError.bind(null,addToDoHandler)} cta="Add"></Button>
 </span>

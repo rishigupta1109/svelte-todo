@@ -18,9 +18,9 @@
 <Loading />
 
 
-<div class="min-h-screen flex relative flex-col">
+<div class="min-h-screen flex justify-center relative flex-col">
     <Navbar />
-    <div class="p-8 h-full">
+    <div class="p-8 h-full flex justify-center items-center w-full">
         <slot></slot>
     </div>
     <Footer />

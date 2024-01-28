@@ -32,7 +32,7 @@
     
 </script>
 
-<main class="min-w-full min-h-full flex flex-col justify-between">
+<main class=" min-h-full flex flex-col justify-between w-full max-w-[1000px]">
     <div class="flex justify-between items-center p-4 bg-blue-500 text-white">
        WELCOME ! {user?.getName().toLocaleUpperCase()}
     </div>

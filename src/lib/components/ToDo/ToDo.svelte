@@ -25,7 +25,7 @@
 
 <span in:receive={{ key: toDo.getId() }} out:send={{ key: toDo.getId() }} class="flex justify-between items-center bg-white text-black p-4 gap-4 w-full rounded-md">
     <div class="flex gap-4">
-        <input type="checkbox" {checked} on:change={toggle} />
+        <input type="checkbox" {checked} class="cursor-pointer " on:change={toggle} />
         <div>
             <h5>{title.toLocaleUpperCase()}</h5>
             <p class="opacity-65">{description}</p>

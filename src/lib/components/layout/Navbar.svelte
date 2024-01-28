@@ -12,13 +12,14 @@
     $:user=$userStore;
 
     let showConfirmAction=false;
+    $:console.log(user,showConfirmAction);
 </script>
 
-<nav class="flex px-8 py-4 bg-blue-300 text-white justify-between items-center">
+<nav class="flex px-8 py-4 bg-blue-400 text-white justify-between items-center">
     <Logo/>
     {#if user}
-        <ConfirmAction open={showConfirmAction} on:cancel={()=>showConfirmAction=false} on:confirm={firestore.signOut}  >
-            <Button type='button' on:click={()=>showConfirmAction=true} cta="Logout"  filled={true}>Logout</Button>
+        <ConfirmAction open={showConfirmAction} on:cancel={()=>showConfirmAction=false} on:confirm={()=>{firestore.signOut();showConfirmAction=false;}}  >
+            <Button type='button' filled={false} on:click={()=>showConfirmAction=true} cta="Logout"  >Logout</Button>
         </ConfirmAction>
     {/if}
 </nav>

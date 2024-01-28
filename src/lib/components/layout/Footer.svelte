@@ -1,7 +1,7 @@
 <script>
 	import Logo from "../ui/Logo.svelte";
 
-    let className=`flex mt-auto align-bottom px-8 py-4 bg-blue-300 text-white justify-between items-center`
+    let className=`flex mt-auto align-bottom px-8 py-4 bg-blue-400 text-white justify-between items-center`
 </script>
 
 <footer class={className}>

@@ -21,7 +21,7 @@
 
 {#if  open}
 <Modal>
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center ">
         <p class="text-gray-900 text-xl mt-4">Are you sure?</p>
         <div class="flex mt-4 gap-4">
             <Button filled={true} on:click={confirm} cta="YES">Yes</Button>

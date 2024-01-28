@@ -8,7 +8,7 @@
     //props over
 
     let classes="rounded-md px-4 py-2 ";
-    classes+=(filled?`bg-blue-400 text-white transition-all  hover:text-white hover:scale-105 hover:bg-blue-500 `:`bg-white border-2 border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-white`) ;
+    classes+=(filled?`bg-blue-400 text-white transition-all  hover:text-white hover:scale-105 hover:bg-blue-500 `:`hover:scale-105 transition-all bg-white border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white hover:border-white`) ;
 </script>
 
 {#if type==="button"}
