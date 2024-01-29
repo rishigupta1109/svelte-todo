@@ -6,7 +6,6 @@ import {
 	setPersistence,
 	signInWithPopup,
 	signOut,
-	type Config,
 	type Auth
 } from 'firebase/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -119,6 +118,7 @@ export class FirebaseController {
 	getUser = () => {
 		return this.user;
 	};
+
 	getTodos = async () => {
 		const querySnapshot = await getDocs(collection(this.db, 'todos'));
 		querySnapshot.forEach((doc) => {

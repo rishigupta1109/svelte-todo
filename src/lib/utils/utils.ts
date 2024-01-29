@@ -2,6 +2,7 @@ import { Alert } from '$lib/classes/Alert';
 import { alertStore } from '../../store/alertStore';
 
 export function getRandomChar(length: number): string {
+	if (length < 0) throw new Error('Invalid length');
 	let result = '';
 	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 	const charactersLength = characters.length;
@@ -17,18 +18,29 @@ export function generateRandomId(prefix: string = 'TODO'): string {
 	return prefix + getRandomChar(2) + getTimeInLocaleString();
 }
 export function isValidString(str: string, charLimit: number = 250): boolean {
+	if (charLimit < 0) throw new Error('Invalid charLimit');
 	return str.trim().length > 0 && str.trim().length <= charLimit;
 }
 export function isValidDueDate(date: Date): boolean {
-	console.log(date);
-	return date instanceof Date && !isNaN(date.getTime()) && date.getTime() > Date.now();
+	// console.log(date);
+	return date instanceof Date && !isNaN(date.getTime()) && date.getTime() >= Date.now();
 }
 export function isValidId(id: string): boolean {
-	console.log(id);
-	return new RegExp(/^TODO[A-Za-z0-9]*$/).test(id);
+	// console.log(id);
+	return new RegExp(/^TODO[A-Za-z0-9]{2}\d{13}$/).test(id);
+}
+export function isToday(date: Date): boolean {
+	if (!date) return false;
+	const today = new Date();
+	return (
+		date.getDate() == today.getDate() &&
+		date.getMonth() == today.getMonth() &&
+		date.getFullYear() == today.getFullYear()
+	);
 }
 export function getRemainingDays(date: Date) {
 	if (!date) return;
+	if (isToday(date)) return 'Today';
 	if (date.getTime() < Date.now()) return 'Overdue';
 	const diff = Math.abs(date.getTime() - Date.now());
 	const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -36,6 +48,9 @@ export function getRemainingDays(date: Date) {
 }
 
 export function getDueDateHTML(dueDate: Date): string {
+	if (isToday(dueDate)) {
+		return `<p class="text-blue-400">due : Today</p>`;
+	}
 	if (dueDate?.getTime() < Date.now()) {
 		return `<p class="text-red-400">due : ${dueDate?.toDateString()}</p>`;
 	}
