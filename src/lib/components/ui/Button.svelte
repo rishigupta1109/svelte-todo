@@ -5,6 +5,7 @@
     export let className:string="";
     export let href:string="";
     export  let cta="";
+    export let testId:string="";
     //props over
 
     let classes="rounded-md px-4 py-2 ";
@@ -12,17 +13,17 @@
 </script>
 
 {#if type==="button"}
-    <button on:click class={`${classes}  ${className}`} disabled={disabled}>
+    <button data-testid={testId} on:click class={`${classes} ${className}`} disabled={disabled}>
        {cta}
     </button>
 {:else if type==="link"}
-    <a {href} on:click class={`${classes}  ${className}`} >
+    <a  data-testid={testId} {href} on:click class={`${classes}  ${className}`} >
         {cta}
     </a>
 {:else if type==="submit"}
-    <input on:click type="submit" class={`${classes}  ${className}`} disabled={disabled} value={cta}/>
+    <input data-testid={testId} on:click type="submit" class={`${classes}  ${className}`} disabled={disabled} value={cta}/>
 {:else if type==="icon"}
-    <button on:click class={`${classes}  ${className}`} disabled={disabled}>
+    <button data-testid={testId} on:click class={`${classes}  ${className}`} disabled={disabled}>
         <slot></slot>
     </button>
 {/if}

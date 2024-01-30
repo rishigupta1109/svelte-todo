@@ -85,7 +85,7 @@ export class ToDoItem {
 		this.completed = completed;
 		this.dateCompleted = completed ? new Date() : null;
 	}
-	setDateCompleted(dateCompleted: Date): void {
+	setDateCompleted(dateCompleted: Date | null): void {
 		this.dateCompleted = dateCompleted;
 	}
 	setDateDue(dateDue: Date): void {
@@ -112,14 +112,14 @@ export class ToDoItem {
 		description: string;
 		completed: boolean;
 		dateCreated: Date;
-		dateCompleted: Date;
+		dateCompleted: Date | null;
 		dateDue: Date;
 		userId: string;
 	}): ToDoItem {
 		console.log(id, title, description, completed, dateCreated, dateCompleted, dateDue, userId);
 		let item = new ToDoItem(id, title, description, userId, dateDue);
 		item.setCompleted(completed);
-		item.setDateCompleted(new Date(dateCompleted));
+		item.setDateCompleted(dateCompleted ? new Date(dateCompleted) : null);
 		item.setDateCreated(new Date(dateCreated));
 		return item;
 	}

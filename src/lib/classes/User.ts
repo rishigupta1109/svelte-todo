@@ -1,3 +1,5 @@
+import { isValidDateString, isValidEmail, isValidString } from '$lib/utils/utils';
+
 export class User {
 	private id: string;
 	private name: string;
@@ -5,11 +7,28 @@ export class User {
 	private dateCreated: Date;
 	private token: string;
 	constructor(id: string, name: string, email: string, dateCreated: string, token: string) {
+		if (!User.areValidFields(id, name, email, dateCreated, token))
+			throw new Error('Invalid fields');
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.dateCreated = new Date(dateCreated);
 		this.token = token;
+	}
+	static areValidFields(
+		id: string,
+		name: string,
+		email: string,
+		dateCreated: string,
+		token: string
+	): boolean {
+		return (
+			isValidString(id) &&
+			isValidString(name) &&
+			isValidEmail(email) &&
+			isValidDateString(dateCreated) &&
+			isValidString(token)
+		);
 	}
 	getId(): string {
 		return this.id;

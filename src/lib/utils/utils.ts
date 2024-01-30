@@ -80,3 +80,16 @@ export function catchError(callback: Function, args: any) {
 		alertStore.add(new Alert(e.message, 'error'));
 	}
 }
+
+export const isValidEmail = (email: string): boolean => {
+	return new RegExp(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/).test(email);
+};
+
+export const isValidDateString = (dateString: string): boolean => {
+	try {
+		let date = new Date(dateString);
+		return date instanceof Date && !isNaN(date.getTime());
+	} catch (err: any) {
+		return false;
+	}
+};
