@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/44</span>
+                <span class='fraction'>46/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/44</span>
+                <span class='fraction'>46/46</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,100 +106,106 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >&lt;script lang="ts"&gt;</span></span></span>
-<span class="cstat-no" title="statement not covered" >	import { goto } from "$app/navigation";</span>
-<span class="cstat-no" title="statement not covered" >	import ListWrapper from "$lib/components/ui/ListWrapper.svelte";</span>
-<span class="cstat-no" title="statement not covered" >	import { userStore } from "../store/userStore";</span>
-<span class="cstat-no" title="statement not covered" >	import { userToDoStore } from "../store/userToDoStore";</span>
-<span class="cstat-no" title="statement not covered" >	import type { ToDoItem } from "$lib/classes/ToDoItem";</span>
-<span class="cstat-no" title="statement not covered" >	import InputModal from "$lib/components/ui/InputModal.svelte";</span>
-<span class="cstat-no" title="statement not covered" >	import { firebaseStore } from "../store/firebaseStore";</span>
-<span class="cstat-no" title="statement not covered" >    import {alertStore} from "../store/alertStore";</span>
-<span class="cstat-no" title="statement not covered" >    import { Alert } from "$lib/classes/Alert";</span>
-<span class="cstat-no" title="statement not covered" >    //imports over</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    $: completedToDos=$userToDoStore.filter((toDo)=&gt;toDo.getCompleted());</span>
-<span class="cstat-no" title="statement not covered" >    $: incompleteToDos=$userToDoStore.filter((toDo)=&gt;!toDo.getCompleted());</span>
-<span class="cstat-no" title="statement not covered" >    $: user=$userStore;</span>
-<span class="cstat-no" title="statement not covered" >    $:fireStore=$firebaseStore;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    $: if (typeof window !== 'undefined' &amp;&amp; !user) {</span>
-<span class="cstat-no" title="statement not covered" >        goto("/login");</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    $:if(user){</span>
-<span class="cstat-no" title="statement not covered" >        try{</span>
-<span class="cstat-no" title="statement not covered" >            fireStore.getMyTodos(user?.getId()).then((todos:ToDoItem[])=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >                userToDoStore.set(todos);</span>
-<span class="cstat-no" title="statement not covered" >                console.log(todos);</span>
-<span class="cstat-no" title="statement not covered" >            })</span>
-<span class="cstat-no" title="statement not covered" >        }catch(err){</span>
-<span class="cstat-no" title="statement not covered" >            console.log(err);</span>
-<span class="cstat-no" title="statement not covered" >            alertStore.add(new Alert("Error Fetching Todos","error"));</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    </span>
-<span class="cstat-no" title="statement not covered" >&lt;/script&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >&lt;main class=" min-h-full flex flex-col justify-between w-full max-w-[1000px]"&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div class="flex justify-between items-center p-4 bg-blue-500 text-white"&gt;</span>
-<span class="cstat-no" title="statement not covered" >       WELCOME ! {user?.getName().toLocaleUpperCase()}</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;InputModal/&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div class="flex justify-between gap-2 h-full flex-wrap"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ListWrapper title="Incomplete Tasks" list={incompleteToDos} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ListWrapper title="Completed Tasks" list={completedToDos} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >&lt;/main&gt;</span></pre></td></tr></table></pre>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script lang="ts"&gt;
+	import { goto } from "$app/navigation";
+	import ListWrapper from "$lib/components/ui/ListWrapper.svelte";
+	import { userStore } from "../store/userStore";
+	import { userToDoStore } from "../store/userToDoStore";
+	import type { ToDoItem } from "$lib/classes/ToDoItem";
+	import InputModal from "$lib/components/ui/InputModal.svelte";
+	import { firebaseStore } from "../store/firebaseStore";
+    import {alertStore} from "../store/alertStore";
+    import { Alert } from "$lib/classes/Alert";
+    //imports over
+&nbsp;
+    $: completedToDos=$userToDoStore.filter((toDo)=&gt;toDo.getCompleted());
+    $: incompleteToDos=$userToDoStore.filter((toDo)=&gt;!toDo.getCompleted());
+    $: user=$userStore;
+    $:fireStore=$firebaseStore;
+&nbsp;
+    $: if (typeof window !== 'undefined' &amp;&amp; !user) {
+        goto("/login");
+    }
+    $:if(user){
+        try{
+            fireStore.getMyTodos(user?.getId()).then((todos:ToDoItem[])=&gt;{
+                userToDoStore.set(todos);
+                console.log("here",todos);
+            })
+        }catch(err){
+            console.log(err);
+            alertStore.add(new Alert("Error Fetching Todos","error"));
+        }
+    }
+    
+&lt;/script&gt;
+&nbsp;
+&lt;main class=" min-h-full flex flex-col justify-between w-full max-w-[1000px]"&gt;
+    &lt;div class="flex justify-between items-center p-4 bg-blue-500 text-white"&gt;
+       WELCOME ! {<span class="branch-0 cbranch-no" title="branch not covered" >user?.getName().toLocaleUpperCase<span class="branch-0 cbranch-no" title="branch not covered" >()}</span></span>
+    &lt;/div&gt;
+    &lt;InputModal/&gt;
+    {#key $userToDoStore}
+    &lt;div class="flex justify-between gap-2 h-full flex-wrap"&gt;
+        &lt;ListWrapper title="Incomplete Tasks" list={incompleteToDos} /&gt;
+        &lt;ListWrapper title="Completed Tasks" list={completedToDos} /&gt;
+    &lt;/div&gt;
+    {/key}
+&lt;/main&gt;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-29T17:44:51.634Z
+                at 2024-01-31T10:43:04.898Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

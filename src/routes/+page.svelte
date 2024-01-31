@@ -22,7 +22,7 @@
         try{
             fireStore.getMyTodos(user?.getId()).then((todos:ToDoItem[])=>{
                 userToDoStore.set(todos);
-                console.log(todos);
+                console.log("here",todos);
             })
         }catch(err){
             console.log(err);
@@ -37,8 +37,10 @@
        WELCOME ! {user?.getName().toLocaleUpperCase()}
     </div>
     <InputModal/>
+    {#key $userToDoStore}
     <div class="flex justify-between gap-2 h-full flex-wrap">
         <ListWrapper title="Incomplete Tasks" list={incompleteToDos} />
         <ListWrapper title="Completed Tasks" list={completedToDos} />
     </div>
+    {/key}
 </main>

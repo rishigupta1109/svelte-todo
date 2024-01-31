@@ -15,7 +15,7 @@
     $:console.log(user,showConfirmAction);
 </script>
 
-<nav class="flex px-8 py-4 bg-blue-400 text-white justify-between items-center">
+<nav data-testid="navbar" class="flex px-8 py-4 bg-blue-400 text-white justify-between items-center">
     <Logo/>
     {#if user}
         <ConfirmAction open={showConfirmAction} on:cancel={()=>showConfirmAction=false} on:confirm={()=>{firestore.signOut();showConfirmAction=false;}}  >
