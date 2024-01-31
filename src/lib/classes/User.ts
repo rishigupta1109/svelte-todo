@@ -7,6 +7,7 @@ export class User {
 	private dateCreated: Date;
 	private token: string;
 	constructor(id: string, name: string, email: string, dateCreated: string, token: string) {
+		console.log(id, name, email, dateCreated, token);
 		if (!User.areValidFields(id, name, email, dateCreated, token))
 			throw new Error('Invalid fields');
 		this.id = id;
@@ -22,12 +23,20 @@ export class User {
 		dateCreated: string,
 		token: string
 	): boolean {
+		console.log(
+			isValidString(id),
+			isValidString(name),
+			isValidEmail(email),
+			isValidDateString(dateCreated),
+			isValidString(token)
+		);
+
 		return (
 			isValidString(id) &&
 			isValidString(name) &&
 			isValidEmail(email) &&
 			isValidDateString(dateCreated) &&
-			isValidString(token)
+			isValidString(token, 10000)
 		);
 	}
 	getId(): string {
