@@ -64,7 +64,7 @@ export class FirebaseController {
 		this.app = initializeApp(this.firebaseControllerConfig);
 		this.auth = getAuth(this.app);
 
-		onAuthStateChanged(this.auth, (user) => {
+		onAuthStateChanged(this.auth, (user: any) => {
 			loadingStore.stop();
 			this.user = null;
 			if (!user) return;
