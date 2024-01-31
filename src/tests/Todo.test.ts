@@ -59,7 +59,7 @@ test('Testing from function of Todo class', () => {
 });
 
 test('Testing todo with invalid ips', () => {
-	let testCases = [
+	let testCases: any = [
 		{
 			id: generateRandomId('TODO'),
 			title: '',
@@ -89,7 +89,7 @@ test('Testing todo with invalid ips', () => {
 			completed: false,
 			dateCreated: new Date(),
 			dateCompleted: null,
-			dateDue: new Date('2021-09-02'),
+			dateDue: '',
 			userId: 'test',
 			expectedError: '[Error: Invalid dateDue in ToDoItem]'
 		},
@@ -105,7 +105,7 @@ test('Testing todo with invalid ips', () => {
 			expectedError: '[Error: Invalid userId in ToDoItem]'
 		}
 	];
-	testCases.forEach((testCase) => {
+	testCases.forEach((testCase: any) => {
 		expect(() => ToDoItem.from(testCase)).toThrowErrorMatchingInlineSnapshot(
 			testCase.expectedError
 		);

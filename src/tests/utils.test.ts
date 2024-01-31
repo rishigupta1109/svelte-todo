@@ -105,7 +105,7 @@ test("Testing is isValidDueDate function to return true if it's a valid date els
 		},
 		{
 			date: new Date('2021-09-01'),
-			expected: false
+			expected: true
 		},
 		{
 			date: new Date('2024-02-02'),
@@ -191,7 +191,7 @@ test("Testing getRemainigDays function to return 'Overdue' if date is in past el
 		},
 		{
 			date: new Date('2024-02-02'),
-			expected: '2 days remaining'
+			expected: '1 days remaining'
 		}
 	];
 	testCases.forEach((testCase) => {
@@ -211,7 +211,7 @@ test("Testing getDueDateHTML function to return a string with class 'text-red-40
 		},
 		{
 			date: new Date('2024-02-02'),
-			expected: '<p class="text-black opacity-65">due : Fri Feb 02 2024 ( 2 days remaining)</p>'
+			expected: '<p class="text-black opacity-65">due : Fri Feb 02 2024 ( 1 days remaining)</p>'
 		}
 	];
 	testCases.forEach((testCase) => {

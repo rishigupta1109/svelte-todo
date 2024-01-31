@@ -12,7 +12,7 @@ test('should render title correctly', async () => {
 test('should render "No Tasks" when list is empty', async () => {
 	const { getByText } = render(ListWrapper, { props: { title: 'Test Title', list: [] } });
 
-	expect(getByText('No Tasks')).toBeInTheDocument();
+	expect(getByText('No Tasks!')).toBeInTheDocument();
 });
 
 test('should render ToDoList when list is not empty', async () => {
