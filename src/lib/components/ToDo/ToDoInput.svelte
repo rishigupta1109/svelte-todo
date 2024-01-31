@@ -24,6 +24,9 @@
         if(!user){
             return alertStore.add(new Alert("Please Login","error"));
         }
+        if(dueDate===""||new Date(dueDate)<new Date()){
+            return alertStore.add(new Alert("Please Enter a Valid Due Date","error"));
+        }
             const newToDo= new ToDoItem(generateRandomId(), title, description,user?.getId(),new Date(dueDate));
             firestore.createTodo(newToDo);
             userToDoStore.append(newToDo);
