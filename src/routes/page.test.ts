@@ -9,6 +9,18 @@ import { generateRandomId } from '$lib/utils/utils';
 import { ToDoItem } from '$lib/classes/ToDoItem';
 import { vi } from 'vitest';
 
+test('should render greet user when user is logged in', async () => {
+	let mockUser = new User(
+		generateRandomId('USER'),
+		'Test User',
+		'test@gmmail.com',
+		new Date().toDateString(),
+		'asdasd'
+	);
+	userStore.set(mockUser);
+	const { getByText } = render(Page);
+	expect(getByText('WELCOME ! TEST USER')).toBeInTheDocument();
+});
 test('should render user name and todo lists correctly when user is logged in', async () => {
 	let mockUser = new User(
 		generateRandomId('USER'),
@@ -127,7 +139,6 @@ test('should delete todo when delete button is clicked', async () => {
 		new Date().toDateString(),
 		'asdasd'
 	);
-	userStore.set(mockUser);
 	let mockToDoList = [
 		new ToDoItem(
 			generateRandomId('TODO'),
@@ -145,21 +156,99 @@ test('should delete todo when delete button is clicked', async () => {
 		)
 	];
 	mockToDoList[0].setCompleted(true);
+
+	userStore.set(mockUser);
 	userToDoStore.set(mockToDoList);
 
-	const getMyToDoSpy = vi.spyOn(get(firebaseStore), 'getMyTodos').mockResolvedValue(mockToDoList);
+	const getMyToDoSpy = vi.spyOn(get(firebaseStore), 'getMyTodos').mockImplementation(async () => {
+		let $userToDoStore = get(userToDoStore);
+		return $userToDoStore;
+	});
 	const deleteTodoSpy = vi
 		.spyOn(get(firebaseStore), 'deleteTodo')
-		.mockImplementation((id: string): any => {
-			userToDoStore.update((todos) => todos.filter((todo) => todo.getId() !== id));
+		.mockImplementation(async (id: string) => {
+			console.log({ id });
 		});
-	const { getByTestId, getByText } = render(Page);
 
-	expect(getMyToDoSpy).toHaveBeenCalled();
+	const { getByTestId, getByText } = render(Page);
+	const todo2Title = getByText('TEST TITLE2');
+	expect(todo2Title).toBeInTheDocument();
+
+	await waitFor(() => expect(getMyToDoSpy).toHaveBeenCalled());
 
 	const deleteButton = getByTestId(`todo-delete-button-${mockToDoList[1].getId()}`);
+	expect(deleteButton).toBeInTheDocument();
 
 	await fireEvent.click(deleteButton);
+
+	const confirmDelete = getByText('YES');
+	expect(confirmDelete).toBeInTheDocument();
+
+	await fireEvent.click(confirmDelete);
+
 	expect(deleteTodoSpy).toHaveBeenCalled();
-	expect(getByText('TEST TITLE2')).not.toBeInTheDocument();
+	expect(todo2Title).not.toBeInTheDocument();
+});
+
+test('shiuld move todo to completed when complete checkbox is clicked', async () => {
+	let mockUser = new User(
+		generateRandomId('USER'),
+		'Test User',
+		'test@gmmail.com',
+		new Date().toDateString(),
+		'asdasd'
+	);
+	let mockToDoList = [
+		new ToDoItem(
+			generateRandomId('TODO'),
+			'Test Title',
+			'Test Desc',
+			mockUser.getId(),
+			new Date('2024-04-04')
+		),
+		new ToDoItem(
+			generateRandomId('TODO'),
+			'Test Title2',
+			'Test Desc2',
+			mockUser.getId(),
+			new Date('2024-04-04')
+		)
+	];
+	mockToDoList[0].setCompleted(true);
+
+	userStore.set(mockUser);
+	userToDoStore.set(mockToDoList);
+
+	const getMyToDoSpy = vi.spyOn(get(firebaseStore), 'getMyTodos').mockImplementation(async () => {
+		let $userToDoStore = get(userToDoStore);
+		return $userToDoStore;
+	});
+	const updateTodoSpy = vi
+		.spyOn(get(firebaseStore), 'updateTodo')
+		.mockImplementation(async (item: any) => {
+			console.log({ item });
+		});
+
+	const { getByTestId, getByText } = render(Page);
+	const todo2Title = getByText('TEST TITLE2');
+	expect(todo2Title).toBeInTheDocument();
+	expect(
+		getByText('Incomplete Tasks').compareDocumentPosition(todo2Title) &
+			Node.DOCUMENT_POSITION_FOLLOWING
+	).toBeTruthy();
+
+	await waitFor(() => expect(getMyToDoSpy).toHaveBeenCalled());
+
+	const checkBox = getByTestId(`todo-checkbox-${mockToDoList[1].getId()}`);
+	expect(checkBox).toBeInTheDocument();
+
+	await fireEvent.click(checkBox);
+
+	expect(updateTodoSpy).toHaveBeenCalled();
+
+	expect(checkBox).toBeChecked();
+	expect(
+		getByText('Completed Tasks').compareDocumentPosition(todo2Title) &
+			Node.DOCUMENT_POSITION_FOLLOWING
+	).toBeTruthy();
 });

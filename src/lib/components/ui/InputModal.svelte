@@ -7,13 +7,14 @@
     let showModal=false;
 </script>
 
-
+{#key showModal}
 {#if showModal}
-    <Modal bind:showModal={showModal}>
+    <Modal on:click={()=>{showModal=false; console.log('closed')}}>
         <ToDoInput  bind:showModal={showModal} />
     </Modal>
 {/if}
-
+{/key}
+{#if !showModal}
 <FloatingButton on:click={()=>{
     showModal=true;
 }}>
@@ -22,3 +23,4 @@
               d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
     </svg>
 </FloatingButton>
+{/if}

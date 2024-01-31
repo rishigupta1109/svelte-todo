@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/36</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/36</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,84 +98,90 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >&lt;script lang="ts"&gt;</span></span></span>
-<span class="cstat-no" title="statement not covered" >	import { Alert } from "$lib/classes/Alert";</span>
-<span class="cstat-no" title="statement not covered" >	import { ToDoItem } from "$lib/classes/ToDoItem";</span>
-<span class="cstat-no" title="statement not covered" >	import { catchError } from "$lib/utils/utils";</span>
-<span class="cstat-no" title="statement not covered" >	import { alertStore } from "../../../store/alertStore";</span>
-<span class="cstat-no" title="statement not covered" >	import  { firebaseStore } from "../../../store/firebaseStore";</span>
-<span class="cstat-no" title="statement not covered" >	import { userToDoStore } from "../../../store/userToDoStore";</span>
-<span class="cstat-no" title="statement not covered" >	import ToDo from "./ToDo.svelte";</span>
-<span class="cstat-no" title="statement not covered" >    //import over</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    export let toDoList:ToDoItem[]=[];</span>
-<span class="cstat-no" title="statement not covered" >    //props over</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const firestore=$firebaseStore;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    function remove(event:CustomEvent&lt;string&gt;){</span>
-<span class="cstat-no" title="statement not covered" >        const id=event.detail;</span>
-<span class="cstat-no" title="statement not covered" >        firestore.deleteTodo(id);</span>
-<span class="cstat-no" title="statement not covered" >        userToDoStore.remove(id);</span>
-<span class="cstat-no" title="statement not covered" >        alertStore.add(new Alert("ToDo Removed","success"));</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    function toggle(event:CustomEvent&lt;string&gt;){</span>
-<span class="cstat-no" title="statement not covered" >        const id=event.detail;</span>
-<span class="cstat-no" title="statement not covered" >        const item=$userToDoStore.find((toDo)=&gt;toDo.getId()===id);</span>
-<span class="cstat-no" title="statement not covered" >        if(!item) return ;</span>
-<span class="cstat-no" title="statement not covered" >        firestore.updateTodo(item);</span>
-<span class="cstat-no" title="statement not covered" >        userToDoStore.toggle(id);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >&lt;/script&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >&lt;div class="flex flex-col justify-between items-stretch w-full gap-2 py-4  max-h-64 overflow-auto w-full"&gt;</span>
-<span class="cstat-no" title="statement not covered" >    {#each toDoList as toDo(toDo)}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ToDo {toDo} on:remove={catchError.bind(null, remove)} on:toggle={catchError.bind(null, toggle)} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    {/each}</span>
-<span class="cstat-no" title="statement not covered" >&lt;/div&gt;</span></pre></td></tr></table></pre>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script lang="ts"&gt;
+	import { Alert } from "$lib/classes/Alert";
+	import { ToDoItem } from "$lib/classes/ToDoItem";
+	import { catchError } from "$lib/utils/utils";
+	import { alertStore } from "../../../store/alertStore";
+	import  { firebaseStore } from "../../../store/firebaseStore";
+	import { userToDoStore } from "../../../store/userToDoStore";
+	import ToDo from "./ToDo.svelte";
+    //import over
+&nbsp;
+    export let toDoList:ToDoItem[]=[];
+    //props over
+&nbsp;
+    const firestore=$firebaseStore;
+&nbsp;
+&nbsp;
+    function remove(event:CustomEvent&lt;string&gt;){
+        console.log('removing',event.detail);
+        const id=event.detail;
+        firestore.deleteTodo(id);
+        userToDoStore.remove(id);
+        console.log('removed',$userToDoStore);
+        alertStore.add(new Alert("ToDo Removed","success"));
+    }
+    function toggle(event:CustomEvent&lt;string&gt;){
+        const id=event.detail;
+        const item=$userToDoStore.find((toDo)=&gt;toDo.getId()===id);
+        if(!<span class="branch-0 cbranch-no" title="branch not covered" >item) return ;</span>
+        firestore.updateTodo(item);
+        userToDoStore.toggle(id);
+    }
+&lt;/script&gt;
+&nbsp;
+&lt;div data-testid='todo-list' class="flex flex-col justify-between items-stretch w-full gap-2 py-4  max-h-64 overflow-auto w-full"&gt;
+    {#each toDoList as toDo(toDo)}
+        &lt;ToDo {toDo} on:remove={catchError.bind(null, remove)} on:toggle={catchError.bind(null, toggle)} /&gt;
+    {/each}
+&lt;/div&gt;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-29T17:44:51.634Z
+                at 2024-01-31T10:43:04.898Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

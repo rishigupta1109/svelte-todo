@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.56% </span>
+                <span class="strong">86.95% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/23</span>
+                <span class='fraction'>20/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.56% </span>
+                <span class="strong">86.95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/23</span>
+                <span class='fraction'>20/23</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -89,37 +89,37 @@
 <a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { Alert } from '$lib/classes/Alert';
 import { writable, type Writable } from 'svelte/store';
 &nbsp;
 function createAlertStore() {
 	const { subscribe, set, update }: Writable&lt;Alert[]&gt; = writable([]);
-<span class="fstat-no" title="function not covered" >	function add(alert: Alert) {</span>
-<span class="cstat-no" title="statement not covered" >		update((alerts) =&gt; [...alerts, alert]);</span>
-<span class="cstat-no" title="statement not covered" >		setTimeout(() =&gt; {</span>
+	function add(alert: Alert) {
+		update((alerts) =&gt; [...alerts, alert]);
+		setTimeout(() =&gt; {
 <span class="cstat-no" title="statement not covered" >			remove(alert);</span>
-<span class="cstat-no" title="statement not covered" >		}, 2000);</span>
-<span class="cstat-no" title="statement not covered" >	}</span>
+		}, 2000);
+	}
 <span class="fstat-no" title="function not covered" >	function remove(alert: Alert) {</span>
 <span class="cstat-no" title="statement not covered" >		update((alerts) =&gt; alerts.filter((a) =&gt; a.getId() !== alert.getId()));</span>
 <span class="cstat-no" title="statement not covered" >	}</span>
@@ -139,7 +139,7 @@ export const alertStore = createAlertStore();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-29T17:44:51.634Z
+                at 2024-01-31T10:43:04.898Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

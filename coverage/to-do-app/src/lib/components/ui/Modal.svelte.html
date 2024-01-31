@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -72,32 +72,32 @@
 <a name='L7'></a><a href='#L7'>7</a>
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
-<a name='L10'></a><a href='#L10'>10</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >&lt;script&gt;</span></span></span>
-<span class="cstat-no" title="statement not covered" >	import { fade, fly } from "svelte/transition";</span>
-<span class="cstat-no" title="statement not covered" >&lt;/script&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >&lt;div on:click role="button" tabindex="0" on:keydown={(e)=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >}} class="bg-black bg-opacity-50 fixed top-0 left-0 min-h-screen min-w-full z-10"&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div on:click|stopPropagation={()=&gt;{}} role="button" tabindex="0" on:keydown={()=&gt;{}} transition:fly={{x:100}} class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md p-1 z-20 w-2/5  min-w-[300px] min-h-[250px] flex justify-center items-center"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;slot&gt;&lt;/slot&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >&lt;/div&gt;</span></pre></td></tr></table></pre>
+<a name='L10'></a><a href='#L10'>10</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script&gt;
+	import {  fly } from "svelte/transition";
+&lt;/script&gt;
+&nbsp;
+&lt;div on:click role="button" tabindex="0" data-testid="modal" on:keydown={(e)=&gt;{
+}} class="bg-black bg-opacity-50 fixed top-0 left-0 min-h-screen min-w-full z-10"&gt;
+    &lt;div data-testid="modal-data-container" on:click|stopPropagation role="button" tabindex="0" on:keydown={()=&gt;{}} transition:fly={{<span class="branch-0 cbranch-no" title="branch not covered" >x:100}} class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md p-1 z-20 w-2/5  min-w-[300px] min-h-[250px] flex justify-center items-center"&gt;</span>
+        &lt;slot&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-29T17:44:51.634Z
+                at 2024-01-31T10:43:04.898Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

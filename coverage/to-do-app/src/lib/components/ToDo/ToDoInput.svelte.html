@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/46</span>
+                <span class='fraction'>49/49</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/46</span>
+                <span class='fraction'>49/49</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -108,104 +108,113 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
-<span class="cstat-no" title="statement not covered" >&lt;script lang="ts"&gt;</span>
-<span class="cstat-no" title="statement not covered" >	import { Alert } from "$lib/classes/Alert";</span>
-<span class="cstat-no" title="statement not covered" >	import { ToDoItem } from "$lib/classes/ToDoItem";</span>
-<span class="cstat-no" title="statement not covered" >	import { descriptionLength, titleLength } from "$lib/utils/constants";</span>
-<span class="cstat-no" title="statement not covered" >	import { catchError, generateRandomId } from "$lib/utils/utils";</span>
-<span class="cstat-no" title="statement not covered" >	import { alertStore } from "../../../store/alertStore";</span>
-<span class="cstat-no" title="statement not covered" >	import { firebaseStore } from "../../../store/firebaseStore";</span>
-<span class="cstat-no" title="statement not covered" >	import { userStore } from "../../../store/userStore";</span>
-<span class="cstat-no" title="statement not covered" >	import { userToDoStore } from "../../../store/userToDoStore";</span>
-<span class="cstat-no" title="statement not covered" >	import Button from "../ui/Button.svelte";</span>
-<span class="cstat-no" title="statement not covered" >    //import over</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    export let showModal;</span>
-<span class="cstat-no" title="statement not covered" >    //props over</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    let title: string = "";</span>
-<span class="cstat-no" title="statement not covered" >    let description: string = "";</span>
-<span class="cstat-no" title="statement not covered" >    let dueDate: string="";</span>
-<span class="cstat-no" title="statement not covered" >    $:user=$userStore;</span>
-<span class="cstat-no" title="statement not covered" >    $:firestore=$firebaseStore;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const addToDoHandler = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if(!user){</span>
-<span class="cstat-no" title="statement not covered" >            return alertStore.add(new Alert("Please Login","error"));</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >            const newToDo= new ToDoItem(generateRandomId(), title, description,user?.getId(),new Date(dueDate));</span>
-<span class="cstat-no" title="statement not covered" >            firestore.createTodo(newToDo);</span>
-<span class="cstat-no" title="statement not covered" >            userToDoStore.append(newToDo);</span>
-<span class="cstat-no" title="statement not covered" >            alertStore.add(new Alert("ToDo Added","success"));</span>
-<span class="cstat-no" title="statement not covered" >            title = "";</span>
-<span class="cstat-no" title="statement not covered" >            description = "";</span>
-<span class="cstat-no" title="statement not covered" >            dueDate="";</span>
-<span class="cstat-no" title="statement not covered" >            showModal=false;</span>
-<span class="cstat-no" title="statement not covered" >    };</span>
-<span class="cstat-no" title="statement not covered" >&lt;/script&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >&lt;span class="min-w-full bg-blue-400 p-8 rounded-md flex flex-col justify-around items-stretch gap-2 "&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;p class="text-white"&gt;Title : (Max. {titleLength} chars)&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;input type="text" bind:value={title} maxlength={titleLength} class=" rounded-md w-full outline-none px-4 py-2" placeholder="Title" /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;p class="text-white"&gt;Description : (Max. {descriptionLength} chars)&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;textarea bind:value={description} maxlength={descriptionLength} class=" rounded-md outline-none px-4 py-2" placeholder="Description" /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;p class="text-white"&gt;Due Date : (Future date only)&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;input type="date"  bind:value={dueDate} class=" rounded-md outline-none px-4 py-2" placeholder="Due Date" /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;Button type='button' filled={false}  on:click={catchError.bind(null,addToDoHandler)} cta="Add"&gt;&lt;/Button&gt;</span>
-<span class="cstat-no" title="statement not covered" >&lt;/span&gt;</span></pre></td></tr></table></pre>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+&lt;script lang="ts"&gt;
+	import { Alert } from "$lib/classes/Alert";
+	import { ToDoItem } from "$lib/classes/ToDoItem";
+	import { descriptionLength, titleLength } from "$lib/utils/constants";
+	import { catchError, generateRandomId } from "$lib/utils/utils";
+	import { alertStore } from "../../../store/alertStore";
+	import { firebaseStore } from "../../../store/firebaseStore";
+	import { userStore } from "../../../store/userStore";
+	import { userToDoStore } from "../../../store/userToDoStore";
+	import Button from "../ui/Button.svelte";
+    //import over
+&nbsp;
+    export let showModal;
+    //props over
+&nbsp;
+    let title: string = "";
+    let description: string = "";
+    let dueDate: string="";
+    $:user=$userStore;
+    $:firestore=$firebaseStore;
+&nbsp;
+    const addToDoHandler = () =&gt; {
+        if(!user){
+            return alertStore.add(new Alert("Please Login","error"));
+        }
+        if(dueDate===""||new Date(dueDate)&lt;new Date()){
+            return alertStore.add(new Alert("Please Enter a Valid Due Date","error"));
+        }
+            const newToDo= new ToDoItem(generateRandomId(), title, description,user?.getId(),new Date(dueDate));
+            firestore.createTodo(newToDo);
+            userToDoStore.append(newToDo);
+            showModal=false;
+            alertStore.add(new Alert("ToDo Added","success"));
+            title = "";
+            description = "";
+            dueDate="";
+    };
+&lt;/script&gt;
+&nbsp;
+&lt;span data-testid="todo-input-container" class="min-w-full bg-blue-400 p-8 rounded-md flex flex-col justify-around items-stretch gap-2 "&gt;
+    &lt;p class="text-white"&gt;Title : (Max. {titleLength} chars)&lt;/p&gt;
+    &lt;input data-testid="input-title" type="text" bind:value={title} maxlength={titleLength} class=" rounded-md w-full outline-none px-4 py-2" placeholder="Title" /&gt;
+    &lt;p class="text-white"&gt;Description : (Max. {descriptionLength} chars)&lt;/p&gt;
+    &lt;textarea data-testid="input-description" bind:value={description}  maxlength={descriptionLength} class=" rounded-md outline-none px-4 py-2" placeholder="Description" /&gt;
+    &lt;p class="text-white"&gt;Due Date : (Future date only)&lt;/p&gt;
+    &lt;input data-testid="input-due-date" type="date"  bind:value={dueDate} class=" rounded-md outline-none px-4 py-2" placeholder="Due Date" /&gt;
+    &lt;Button testId="add-button" type='button' filled={false}  on:click={catchError.bind(null,addToDoHandler)} cta="Add"&gt;&lt;/Button&gt;
+&lt;/span&gt;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-29T17:44:51.634Z
+                at 2024-01-31T10:43:04.898Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

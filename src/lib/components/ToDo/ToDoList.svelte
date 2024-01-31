@@ -15,9 +15,11 @@
 
 
     function remove(event:CustomEvent<string>){
+        console.log('removing',event.detail);
         const id=event.detail;
         firestore.deleteTodo(id);
         userToDoStore.remove(id);
+        console.log('removed',$userToDoStore);
         alertStore.add(new Alert("ToDo Removed","success"));
     }
     function toggle(event:CustomEvent<string>){
