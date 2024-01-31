@@ -23,7 +23,7 @@ export function isValidString(str: string, charLimit: number = 250): boolean {
 }
 export function isValidDueDate(date: Date): boolean {
 	// console.log(date);
-	return date instanceof Date && !isNaN(date.getTime()) && date.getTime() >= Date.now();
+	return date instanceof Date && !isNaN(date.getTime());
 }
 export function isValidId(id: string): boolean {
 	// console.log(id);
