@@ -64,16 +64,17 @@ export class FirebaseController {
 		this.app = initializeApp(this.firebaseControllerConfig);
 		this.auth = getAuth(this.app);
 
-		onAuthStateChanged(this.auth, (user) => {
+		onAuthStateChanged(this.auth, (user: any) => {
 			loadingStore.stop();
 			this.user = null;
 			if (!user) return;
+			console.log(user);
 			this.user = User.from({
 				id: user.uid,
 				name: user.displayName ?? '',
 				email: user.email ?? '',
 				dateCreated: user.metadata.creationTime ?? '',
-				token: this.token
+				token: user?.accessToken ?? ''
 			});
 			this.userStore.set(this.user);
 		});

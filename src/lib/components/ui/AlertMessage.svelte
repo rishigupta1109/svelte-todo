@@ -7,7 +7,7 @@
 
 <div class="fixed top-4 right-4 flex flex-col gap-4 w-fit z-50  ">
     {#each $alertStore as alert(alert)}
-        <div transition:fly={{x:100}} class="w-fit {getBgColor(alert.getType())} flex p-4 rounded-md text-white">
+        <div data-testid="alert-{alert.getId()}" transition:fly={{x:100}} class="w-fit {getBgColor(alert.getType())} flex p-4 rounded-md text-white">
             {alert.getType().toLocaleUpperCase()} : 
             {alert.getMessage()}   
         </div>

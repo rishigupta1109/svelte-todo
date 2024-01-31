@@ -11,7 +11,7 @@
 <div class="flex flex-col justify-start gap-2 items-center w-full p-4 h-full bg-blue-400 my-2 text-white min-h-64 rounded-md ">
     <h4 class="w-full bg-blue-500 p-4 rounded-md text-center">{title}</h4>
     {#if list.length===0}
-        <h4 class="text-center py-4">No Tasks</h4>
+        <h4 class="text-center py-4" data-testid="no-tasks">No Tasks!</h4>
     {/if}
     <ToDoList toDoList={list} />
 </div>

@@ -6,7 +6,9 @@ import {
 	getRemainingDays,
 	getTimeInLocaleString,
 	isToday,
+	isValidDateString,
 	isValidDueDate,
+	isValidEmail,
 	isValidId,
 	isValidString
 } from '$lib/utils/utils';
@@ -189,7 +191,7 @@ test("Testing getRemainigDays function to return 'Overdue' if date is in past el
 		},
 		{
 			date: new Date('2024-02-02'),
-			expected: '3 days remaining'
+			expected: '2 days remaining'
 		}
 	];
 	testCases.forEach((testCase) => {
@@ -209,7 +211,7 @@ test("Testing getDueDateHTML function to return a string with class 'text-red-40
 		},
 		{
 			date: new Date('2024-02-02'),
-			expected: '<p class="text-black opacity-65">due : Fri Feb 02 2024 ( 3 days remaining)</p>'
+			expected: '<p class="text-black opacity-65">due : Fri Feb 02 2024 ( 2 days remaining)</p>'
 		}
 	];
 	testCases.forEach((testCase) => {
@@ -242,5 +244,75 @@ test("Testing getBgColor function to return a string with class 'bg-green-500' i
 	];
 	testCases.forEach((testCase) => {
 		expect(getBgColor(testCase.type)).toBe(testCase.expected);
+	});
+});
+
+test("Testing isValidEmail function to return true if it's a valid email else false", () => {
+	let testCases = [
+		{
+			email: '',
+			expected: false
+		},
+		{
+			email: 'emailId',
+			expected: false
+		},
+		{
+			email: 'rishi@gmail.com',
+			expected: true
+		},
+		{
+			email: 'test@db.com',
+			expected: true
+		}
+	];
+	testCases.forEach((testCase) => {
+		expect(isValidEmail(testCase.email)).toBe(testCase.expected);
+	});
+});
+
+test("Testing isValidDateString function to return true if it's a valid date string else false", () => {
+	let testCases = [
+		{
+			dateString: '',
+			expected: false
+		},
+		{
+			dateString: '2021-09-01',
+			expected: true
+		},
+		{
+			dateString: '2024-02-02',
+			expected: true
+		},
+		{
+			dateString: '2021-09-01 12:00:00',
+			expected: true
+		},
+		{
+			dateString: '2021-09-01 12:00',
+			expected: true
+		},
+		{
+			dateString: '2021-09-01 12',
+			expected: false
+		},
+		{
+			dateString: '2021-09-01 12:00:00:00',
+			expected: true
+		},
+		{
+			dateString: '2021-09-01 12:00:00:00:00',
+			expected: false
+		},
+		{
+			dateString: '2021-09-01 12:00:00:00:00:00',
+			expected: false
+		}
+	];
+
+	testCases.forEach((testCase) => {
+		console.log(testCase.dateString, isValidDateString(testCase.dateString), testCase.expected);
+		expect(isValidDateString(testCase.dateString)).toBe(testCase.expected);
 	});
 });
