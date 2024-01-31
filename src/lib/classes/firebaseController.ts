@@ -153,7 +153,7 @@ export class FirebaseController {
 					description: doc.data().description,
 					completed: doc.data().completed,
 					dateCreated: new Date(doc.data().dateCreated.seconds * 1000),
-					dateCompleted: new Date(doc.data().dateCompleted) || null,
+					dateCompleted: new Date(doc.data().dateCompleted?.seconds * 1000) || null,
 					dateDue: new Date(doc.data().dateDue.seconds * 1000),
 					userId: doc.data().userId
 				})
