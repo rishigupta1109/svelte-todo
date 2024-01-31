@@ -3,8 +3,7 @@ import { expect, it, vi } from 'vitest';
 import ToDo from '../ToDo.svelte';
 import { ToDoItem } from '$lib/classes/ToDoItem';
 import { generateRandomId } from '$lib/utils/utils';
-import { getDispatchProxy } from 'svelte/internal';
-const mockItem = new ToDoItem(
+const mockItem: any = new ToDoItem(
 	generateRandomId('TODO'),
 	'test',
 	'test',

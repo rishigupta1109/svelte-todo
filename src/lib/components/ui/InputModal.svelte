@@ -9,8 +9,8 @@
 
 
 {#if showModal}
-    <Modal on:click={()=>{showModal=false;}}>
-        <ToDoInput bind:showModal={showModal} />
+    <Modal bind:showModal={showModal}>
+        <ToDoInput  bind:showModal={showModal} />
     </Modal>
 {/if}
 

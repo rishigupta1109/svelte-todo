@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/svelte';
+import { render, fireEvent, waitFor } from '@testing-library/svelte';
 import InputModal from '../InputModal.svelte';
 
 test('should render floating button correctly', async () => {
@@ -19,14 +19,18 @@ test('should open modal when floating button is clicked', async () => {
 });
 
 test('should close modal when modal is clicked', async () => {
-	const { getByTestId, queryByTestId } = render(InputModal);
+	const { getByTestId } = render(InputModal);
 
 	const button = getByTestId('floating-add-button');
+	expect(button).toBeInTheDocument();
+
 	await fireEvent.click(button);
 
 	const modal = getByTestId('modal');
+	await waitFor(() => expect(modal).toBeInTheDocument());
+
+	await fireEvent.focus(modal);
 	await fireEvent.click(modal);
 
-	const modalAfterClick = queryByTestId('modal');
-	expect(modalAfterClick).not.toBeInTheDocument();
+	await waitFor(() => expect(modal).not.toBeInTheDocument());
 });
